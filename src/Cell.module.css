@@ -1,0 +1,18 @@
+@keyframes rendered {
+  0% {
+    background-color: #BBB7DA;
+  }
+
+  100% {
+    background-color: #fff;
+  }
+}
+
+.cell {
+  height: 40px;
+  border: 1px solid #ddd;
+  display: grid;
+  place-content: center;
+  animation: rendered 1s ease;
+  animation-iteration-count: 1;
+}

@@ -1,0 +1,33 @@
+.app {
+  padding: 16px;
+}
+
+.children {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+  align-items: center;
+  text-align: center;
+}
+
+.primitive {
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.obj {
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.func {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}

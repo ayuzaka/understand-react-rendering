@@ -1,34 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { ReactLocation, Router, Link, Outlet } from '@tanstack/react-location';
+import { Primitive } from './Primitive';
+import { Object } from './Object';
+import { Callback } from './Callback';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const location = new ReactLocation();
 
   return (
-    <div className="App">
+    <Router
+      location={location}
+      routes={[
+        { path: '/', element: <Primitive /> },
+        { path: '/object', element: <Object /> },
+        { path: '/callback', element: <Callback /> },
+      ]}
+    >
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <Link to="/">Home</Link> | <Link to="/object">Object</Link> | <Link to="/callback">Callback</Link>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+      <hr />
+      <Outlet />
+    </Router>
+  );
 }
 
-export default App
+export default App;
